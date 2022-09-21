@@ -1,6 +1,6 @@
 {
-  "name": "react-store-locator",
-  "version": "0.0.0",
+  "name": "@mikhail2404/react-store-locator",
+  "version": "0.1.6",
   "scripts": {
     "lintfix": "eslint --fix ./src --ext .js,.jsx,.ts,.tsx",
     "rollup": "rollup -c"

@@ -106,7 +106,8 @@ const SearchBox = ({ mapApi, fetchPlaces, fetchInput, map, style }: IProps) => {
     setNoStoresValue,
     setQuery,
     setStore,
-    setZoom
+    setZoom,
+    setZooming
   } = useContext(StoreLocatorContext);
   const { query } = storeLocatorState;
   const { searchIconStyles, placeholderStyles, arrowLeftIconStyles } = style;
@@ -138,11 +139,10 @@ const SearchBox = ({ mapApi, fetchPlaces, fetchInput, map, style }: IProps) => {
         if (status !== mapApi.places.PlacesServiceStatus.OK || !predictions) {
           throw new Error(status);
         }
-
         fetchPlaces(predictions);
 
         if (e.keyCode == 13) {
-          selectPlace(map, predictions[0]);
+          selectPlace(map, predictions[0], setActivePlaces, setZoom, setQuery, setNoStoresValue, setZooming);
         } else {
           setActivePlaces(true);
         }

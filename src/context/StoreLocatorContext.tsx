@@ -1,4 +1,4 @@
-import  {createContext} from "react";
+import {createContext} from "react";
 import {ActiveInfo, IStore, StoreLocatorState} from "../types/interfaces";
 
 export type StoreLocatorProps = {

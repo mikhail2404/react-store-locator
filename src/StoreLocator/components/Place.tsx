@@ -3,6 +3,8 @@ import styled from "styled-components";
 
 import { selectPlace } from "../utils/utils";
 import {IPlace} from "../../types/interfaces";
+import {useContext} from "react";
+import {StoreLocatorContext} from "../../context/StoreLocatorContext";
 
 const Wrapper = styled.div`
   cursor: pointer;
@@ -28,10 +30,17 @@ interface IProps {
 }
 
 const Place = ({ place, input, mapInstance }: IProps) => {
+    const {
+        setActivePlaces,
+        setNoStoresValue,
+        setQuery,
+        setZoom,
+        setZooming
+    } = useContext(StoreLocatorContext);
   const values = input.split(" ").length === 1 ? [input] : input.split(" ");
 
   const handleClick = () => {
-    selectPlace(mapInstance, place);
+    selectPlace(mapInstance, place, setActivePlaces, setZoom, setQuery, setNoStoresValue, setZooming);
   };
 
   return (

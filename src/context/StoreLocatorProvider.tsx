@@ -4,7 +4,7 @@ import {useReducer} from "react";
 import {storeLocatorReducer} from "./storeLocatorReducer";
 
 
-const initialState: StoreLocatorState =  {
+const initialState: StoreLocatorState = {
     query: "",
     currentGeolocation: false,
     activePlaces: false,
@@ -34,7 +34,7 @@ export const StoreLocatorProvider = ({children}: StoreLocatorProviderProps) => {
         dispatch({type: "SET_CURRENT_GEOLOCATION", payload: currentGeolocation})
     }
     const setActivePlaces = (activePlaces: boolean) => {
-        dispatch({type: 'SET_CURRENT_GEOLOCATION', payload: activePlaces})
+        dispatch({type: 'SET_ACTIVE_PLACES', payload: activePlaces})
     }
     const setActiveInfo = (activeInfo: ActiveInfo) => {
         dispatch({type: 'SET_ACTIVE_INFO', payload: activeInfo})
@@ -58,7 +58,19 @@ export const StoreLocatorProvider = ({children}: StoreLocatorProviderProps) => {
         dispatch({type: 'SET_EXTRACT_COUNTRY', payload: extractCountry})
     }
     return (
-        <StoreLocatorContext.Provider value={{storeLocatorState, setQuery, setCurrentGeolocation, setActivePlaces, setActiveInfo, setZoom, setZooming, setStore, setClosest, setNoStoresValue, setExtractCountry}}>
+        <StoreLocatorContext.Provider value={{
+            storeLocatorState,
+            setQuery,
+            setCurrentGeolocation,
+            setActivePlaces,
+            setActiveInfo,
+            setZoom,
+            setZooming,
+            setStore,
+            setClosest,
+            setNoStoresValue,
+            setExtractCountry
+        }}>
             {children}
         </StoreLocatorContext.Provider>
     )

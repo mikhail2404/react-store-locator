@@ -28,18 +28,20 @@ interface IProps {
   input: string;
 }
 
-const Places = ({ places, input, mapInstance }:IProps) => (
-  <Wrapper className="store-locator-places">
-    {places &&
-      places.map((place, index) => (
-        <Place
-          key={index}
-          place={place}
-          mapInstance={mapInstance}
-          input={input}
-        />
-      ))}
-  </Wrapper>
-);
+const Places = ({ places, input, mapInstance }:IProps) => {
+  return (
+    <Wrapper className="store-locator-places">
+      {places &&
+        places.map((place, index) => (
+          <Place
+            key={index}
+            place={place}
+            mapInstance={mapInstance}
+            input={input}
+          />
+        ))}
+    </Wrapper>
+      )
+};
 
 export default Places;
